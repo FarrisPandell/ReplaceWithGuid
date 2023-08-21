@@ -15,7 +15,10 @@ internal static class Program
             _ => (0, string.Empty)
         };
         Console.WriteLine($"Replaced: {count}");
-        File.WriteAllText(path, updatedText);
+        if (count > 0)
+        {
+            File.WriteAllText(path, updatedText);
+        }
     }
         
     private static (int, string) ReplaceGuidsInSql(string text) => 
